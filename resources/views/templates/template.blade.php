@@ -8,6 +8,9 @@
     <title>Document</title>
     @vite('resources/css/app.css')
     @yield('style')
+    <style>
+        
+    </style>
 </head>
 
 <body class="relative">
