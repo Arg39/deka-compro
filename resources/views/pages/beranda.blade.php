@@ -165,9 +165,31 @@
         </div>
 
         @include('components.carousel-produk')
+
+        <div class="w-full flex justify-center">
+            <div class="w-full flex flex-col items-center">
+                <h5 class="text-2xl sm:text-4xl text-[#C00000] uppercase font-extrabold mb-16 leading-tight tracking-wide text-center">
+                    Lokasi Kami
+                </h5>
+                <iframe class="w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1178.8802264769415!2d116.86054610906668!3d-1.223643222179101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df1462215e4c245%3A0xdd261999d820c9f6!2sPerumahan%20Pelangi%20Metro%20Residence%20Blok%20E!5e0!3m2!1sen!2sid!4v1753367909639!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="w-full flex flex-col justify-center items-center mt-16 px-4 sm:px-12 md:px-24 mb-24">
+            <div class="w-full flex flex-col items-center mb-8">
+                <h5 class="text-2xl sm:text-4xl text-[#C00000] uppercase font-extrabold mb-8 leading-tight tracking-wide text-center">
+                    Terimakasih atas Kepercayaannya
+                </h5>
+                <div class="w-full px-52 justify-center text-center">
+                    <p class="text-2xl">Kami selalu memberikan apresiasi dan rasa terima kasih kepada rekan, mitra dan pelanggan setia kami yang telah mempercayakan jasa kepada kami.</p>
+                </div>
+            </div>
+            @include('components.carousel-client')
+        </div>
     </div>
+    @include('templates.footer')
 @endsection
 
 @section('script')
-    {{-- Custom JS untuk Beranda (optional) --}}
+    {{-- script --}}
 @endsection
