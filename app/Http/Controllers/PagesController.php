@@ -10,4 +10,9 @@ class PagesController extends Controller
     {
         return view('pages.beranda');
     }
+
+    public function about()
+    {
+        return view('pages.tentang');
+    }
 }
