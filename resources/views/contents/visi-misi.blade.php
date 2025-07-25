@@ -50,9 +50,14 @@
 </div>
 
 {{-- Mobile --}}
-<div class="flex flex-col md:hidden w-full items-center gap-12">
+<div class="hidden md:flex flex-col md:flex-row justify-start items-start gap-8 w-full">
+    <!-- ...existing desktop/tablet code... -->
+</div>
+
+{{-- Mobile: Visi & Misi berdampingan --}}
+<div class="flex flex-row md:hidden w-full justify-center gap-4">
     <!-- VISI Mobile -->
-    <div class="relative flex justify-center items-start w-full" style="min-height: 420px; max-width: 95vw;">
+    <div class="relative flex justify-center items-start w-1/2 max-w-[180px]" style="min-height: 420px;">
         <!-- Lingkaran di atas persegi panjang -->
         <div class="absolute left-1/2 -translate-x-1/2 z-20 flex flex-col items-center" style="width:180px; height:180px; top:-36px;">
             <div class="flex flex-col items-center justify-center" style="width:180px; height:180px; border:14px solid #C00000; border-radius:50%; background:white; opacity:1;">
@@ -71,7 +76,7 @@
         </div>
     </div>
     <!-- MISI Mobile -->
-    <div class="relative flex justify-center items-start w-full" style="min-height: 420px; max-width: 95vw;">
+    <div class="relative flex justify-center items-start w-1/2 max-w-[180px]" style="min-height: 420px;">
         <!-- Lingkaran di atas persegi panjang -->
         <div class="absolute left-1/2 -translate-x-1/2 z-20 flex flex-col items-center" style="width:180px; height:180px; top:-36px;">
             <div class="flex flex-col items-center justify-center" style="width:180px; height:180px; border:14px solid #C00000; border-radius:50%; background:white; opacity:1;">
