@@ -3,5 +3,7 @@
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [PagesController::class, 'index'])->name('beranda');
-Route::get('/tentang', [PagesController::class, 'about'])->name('tentang');
+Route::redirect('/', '/beranda');
+
+Route::get('/beranda', [PagesController::class, 'index'])->name('beranda');
+Route::get('/tentang-kami', [PagesController::class, 'about'])->name('tentang');

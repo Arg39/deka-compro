@@ -7,27 +7,27 @@
             <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-16">
                 <li>
-                    <a href="#" class="font-semibold hover:text-[#C00000] text-xl leading-none tracking-normal text-center text-white">
+                    <a href="/beranda" class="font-semibold hover:text-[#C00000] text-xl leading-none tracking-normal text-center text-white">
                         Beranda
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="font-semibold hover:text-[#C00000] text-xl leading-none tracking-normal text-center text-white" >
+                    <a href="/tentang-kami" class="font-semibold hover:text-[#C00000] text-xl leading-none tracking-normal text-center text-white" >
                         Tentang Kami
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="font-semibold text-xl leading-none tracking-normal text-center text-white hover:text-[#C00000]">
+                    <a href="/blog" class="font-semibold text-xl leading-none tracking-normal text-center text-white hover:text-[#C00000]">
                         Blog
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="font-semibold text-xl leading-none tracking-normal text-center text-white hover:text-[#C00000]">
+                    <a href="/layanan" class="font-semibold text-xl leading-none tracking-normal text-center text-white hover:text-[#C00000]">
                         Layanan
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="font-semibold text-xl leading-none tracking-normal text-center p-2 px-4 border border-[#C00000] bg-transparent hover:bg-[#C00000] hover:text-white text-[#C00000] rounded-lg transition duration-300 ease-in-out">
+                    <a href="/kontak" class="font-semibold text-xl leading-none tracking-normal text-center p-2 px-4 border border-[#C00000] bg-transparent hover:bg-[#C00000] hover:text-white text-[#C00000] rounded-lg transition duration-300 ease-in-out">
                         Hubungi Kami
                     </a>
                 </li>

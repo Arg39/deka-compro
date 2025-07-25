@@ -13,6 +13,6 @@ class PagesController extends Controller
 
     public function about()
     {
-        return view('pages.tentang');
+        return view('pages.tentang-kami');
     }
 }
