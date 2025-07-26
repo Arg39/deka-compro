@@ -2,6 +2,9 @@
 
 @section('style')
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         .tentang-bg {
             background-image: url('{{ asset('assets/img/tentang-kami.jpg') }}');
             background-size: cover;
@@ -94,7 +97,29 @@
                 ])
             </div>
             <div>
-                <h4 class="text-xl sm:text-3xl font-extrabold text-[#C00000] mb-8 sm:mb-24 uppercase">Divisi</h4>
+                <h4 class="text-xl sm:text-3xl font-extrabold text-[#C00000] mb-8 uppercase">Divisi</h4>
+                <div class="flex flex-col sm:flex-row gap-8 sm:gap-16">
+                    <div class="relative flex justify-center items-center w-full sm:w-[320px] h-[320px] sm:h-[460px] rounded overflow-hidden" style="background-image: url('{{ asset('assets/img/tentang/divisi1.jpg') }}'); background-size: cover; background-position: center;">
+                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                        <div class="relative z-10 flex flex-col items-start justify-end w-full h-full px-4 py-6 sm:py-0">
+                            <p class="text-white text-xl sm:text-3xl font-bold mb-2 sm:mb-4 uppercase">Sales</p>
+                            <a href="#sales" class="flex items-center justify-center text-base sm:text-2xl text-white font-medium rounded hover:text-[#C00000] transition-all duration-200 mb-4 sm:mb-6 gap-2 scroll-link">
+                                Selengkapnya
+                                @include('components.icons', ['name' => 'arrow-right-2', 'size' => 32])
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative flex justify-center items-center w-full sm:w-[320px] h-[320px] sm:h-[460px] rounded overflow-hidden mt-0 sm:mt-24" style="background-image: url('{{ asset('assets/img/tentang/divisi2.jpg') }}'); background-size: cover; background-position: center;">
+                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                        <div class="relative z-10 flex flex-col items-start justify-end w-full h-full px-4 py-6 sm:py-0">
+                            <p class="text-white text-xl sm:text-3xl font-bold mb-2 sm:mb-4 uppercase">ICT</p>
+                            <a href="#ict" class="flex items-center justify-center text-base sm:text-2xl text-white font-medium rounded hover:text-[#C00000] transition-all duration-200 mb-4 sm:mb-6 gap-2 scroll-link">
+                                Selengkapnya
+                                @include('components.icons', ['name' => 'arrow-right-2', 'size' => 32])
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -104,7 +129,7 @@
         </div>
 
         <div class="p-4 sm:p-16 pb-12 sm:pb-24 mt-8 sm:mt-16">
-            <h4 class="text-xl sm:text-3xl font-extrabold text-[#C00000] uppercase mb-4 sm:mb-8">Sales</h4>
+            <h4 id="sales" class="text-xl sm:text-3xl font-extrabold text-[#C00000] uppercase mb-4 sm:mb-8">Sales</h4>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 justify-center items-start">
                 <div class="flex justify-center">
                     <img class="w-full max-w-[400px] sm:max-w-[800px] h-auto rounded" src="{{asset('assets/img/tentang/sales.jpg')}}" alt="">
@@ -122,7 +147,7 @@
                     </p>
                 </div>
             </div>
-            <h4 class="text-xl sm:text-3xl font-extrabold text-[#C00000] uppercase mt-8 sm:mt-16 mb-4 sm:mb-8">ICT (Information and Communication of Technology)</h4>
+            <h4 id="ict" class="text-xl sm:text-3xl font-extrabold text-[#C00000] uppercase mt-8 sm:mt-16 mb-4 sm:mb-8">ICT (Information and Communication of Technology)</h4>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 justify-center items-start">
                 <div class="flex justify-center">
                     <img class="w-full max-w-[400px] sm:max-w-[800px] h-auto rounded" src="{{asset('assets/img/tentang/ict.jpg')}}" alt="">
@@ -146,5 +171,29 @@
 @endsection
 
 @section('script')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Select all scroll-link anchors
+            document.querySelectorAll('a.scroll-link').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    const href = anchor.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            // Get navbar height (assumes .navbar class)
+                            const navbar = document.querySelector('.navbar');
+                            const offset = navbar ? navbar.offsetHeight : 0;
+                            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset - 16; // 16px extra space
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
     {{-- script --}}
 @endsection

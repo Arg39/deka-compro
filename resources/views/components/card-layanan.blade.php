@@ -18,11 +18,9 @@
             {{ $description }}
         </p>
         <div class="flex-grow"></div>
-        <button class="flex items-center justify-center text-base sm:text-xl text-white font-medium rounded hover:text-[#C0000] transition-all duration-200 mb-6">
+        <button class="flex items-center justify-center text-base sm:text-xl text-white font-medium rounded hover:text-[#C00000] transition-all duration-200 mb-6">
             Selengkapnya
-            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="24" height="24" viewBox="0 0 24 24">
-                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12h16m0 0l-6-6m6 6l-6 6"/>
-            </svg>
+            @include('components.icons', ['name' => 'arrow-right-2', 'size' => 24])
         </button>
     </div>
 </div>

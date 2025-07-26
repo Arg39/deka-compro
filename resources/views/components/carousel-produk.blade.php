@@ -62,7 +62,6 @@
                     const pageWidth = el.offsetWidth;
                     const maxScrollLeft = el.scrollWidth - pageWidth;
 
-                    // Jika sudah mendekati ujung (dalam 1/2 page), anggap di halaman terakhir
                     if (scrollLeft + pageWidth >= el.scrollWidth - 1) {
                         this.currentPage = this.pages - 1;
                     } else {
@@ -95,7 +94,7 @@
                     const x = e.pageX || e.touches[0].pageX;
                     const walk = (x - this.startX) * 1.5;
                     $refs.slider.scrollLeft = this.scrollLeft - walk;
-                }, // ✅ tambahkan koma di sini
+                },
 
                 maxVisibleDots: 3,
 
