@@ -13,7 +13,7 @@
     <p class="mt-4 text-lg sm:text-lg text-base font-bold blog-title">{{ $blog->title }}</p>
     <p class="mt-2 text-gray-600 line-clamp-3 blog-desc text-sm sm:text-base">{{ $blog->content }}</p>
 
-    <button
+    <button onclick="location.href='{{ url('/blog/' . $blog->id) }}'"
         class="mt-4 flex items-center gap-2 text-gray-600 hover:text-[#C00000] font-semibold selengkapnya-btn text-sm sm:text-base"
         data-id="{{ $blog->id }}">
         Selengkapnya
