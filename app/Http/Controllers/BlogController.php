@@ -37,7 +37,17 @@ class BlogController extends Controller
 
         try {
             if ($request->hasFile('image')) {
+                // Check if storage directory exists and is writable
+                if (!is_dir(storage_path('app/public/blog_images'))) {
+                    mkdir(storage_path('app/public/blog_images'), 0755, true);
+                }
+                if (!is_writable(storage_path('app/public/blog_images'))) {
+                    throw new \Exception('Storage directory is not writable.');
+                }
                 $validated['image'] = $request->file('image')->store('blog_images', 'public');
+                if (!$validated['image']) {
+                    throw new \Exception('Failed to store image.');
+                }
             }
             Blog::create($validated);
             return redirect()->route('admin.blog.index')->with('success', 'Blog berhasil ditambahkan.');

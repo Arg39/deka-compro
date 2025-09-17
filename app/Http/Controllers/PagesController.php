@@ -28,9 +28,49 @@ class PagesController extends Controller
         return view('pages.kontak');
     }
 
-    public function blog()
+    public function blog(Request $request)
     {
-        return view('pages.blog');
+        $perPage = 3;
+        $page = (int) $request->query('page', 1);
+
+        $blogsQuery = Blog::orderBy('tanggal_berita', 'desc');
+        $totalBlogs = $blogsQuery->count();
+
+        $blogs = $blogsQuery->skip(($page - 1) * $perPage)->take($perPage)->get();
+
+        $latestBlogs = Blog::orderBy('tanggal_berita', 'desc')->take(3)->get();
+
+        \Carbon\Carbon::setLocale('id');
+
+        if ($request->ajax()) {
+            // Use the correct partial for multiple blogs
+            $html = view('pages.content.blogs', ['blogs' => $blogs])->render();
+            $hasMore = ($page * $perPage) < $totalBlogs;
+            return response()->json(['html' => $html, 'hasMore' => $hasMore]);
+        }
+
+        return view('pages.blog', [
+            'blogs' => $blogs,
+            'latestBlogs' => $latestBlogs,
+            'totalBlogs' => $totalBlogs,
+            'perPage' => $perPage,
+            'page' => $page,
+        ]);
+    }
+
+    public function blogDetail($id)
+    {
+        $blog = Blog::findOrFail($id);
+        $latestBlogs = Blog::orderBy('tanggal_berita', 'desc')->take(3)->get();
+
+        \Carbon\Carbon::setLocale('id');
+
+        if (request()->ajax()) {
+            $html = view('pages.content.blog-detail', compact('blog'))->render();
+            return response()->json(['html' => $html]);
+        }
+
+        return view('pages.blog-detail', compact('blog', 'latestBlogs'));
     }
 
     public function showLoginForm()

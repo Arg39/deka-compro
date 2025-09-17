@@ -14,6 +14,7 @@ Route::get('/layanan', [PagesController::class, 'service'])->name('layanan');
 Route::get('/kontak', [PagesController::class, 'contact'])->name('kontak');
 Route::post('/kontak', [MessageController::class, 'store'])->name('kontak.store');
 Route::get('/blog', [PagesController::class, 'blog'])->name('blog');
+Route::get('/blog/{id}', [PagesController::class, 'blogDetail'])->name('blog.detail');
 
 // Login routes
 Route::get('/login', [PagesController::class, 'showLoginForm'])->name('login');
@@ -27,7 +28,7 @@ Route::middleware(['auth'])->group(
         Route::get('/admin/message', [PagesController::class, 'adminMessage'])->name('admin.message');
 
         // Blog resource routes
-        Route::get('/admin/blog', [BlogController::class, 'index'])->name('admin.blog.index'); // Use only this for index
+        Route::get('/admin/blog', [BlogController::class, 'index'])->name('admin.blog.index');
         Route::get('/admin/blog/create', [BlogController::class, 'create'])->name('admin.blog.create');
         Route::post('/admin/blog', [BlogController::class, 'store'])->name('admin.blog.store');
         Route::get('/admin/blog/{id}', [BlogController::class, 'show'])->name('admin.blog.show');
