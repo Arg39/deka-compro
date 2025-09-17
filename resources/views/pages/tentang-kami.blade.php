@@ -9,7 +9,7 @@
             background-image: url('{{ asset('assets/img/tentang-kami.jpg') }}');
             background-size: cover;
             background-position: center;
-            height: 996px;
+            height: 680px;
             width: 100%;
             position: relative;
         }
